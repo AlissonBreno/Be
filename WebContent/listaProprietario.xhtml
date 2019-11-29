@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<ui:composition template="_template.xhtml">
+		
+		<ui:define name="titulo_pagina">Proprietários</ui:define>
+		
+		<ui:define name="conteudo">	
+	        <!-- Content -->
+	        <div class="content">
+	            <!-- Animated -->
+	            <div class="animated fadeIn">
+	                <!-- Widgets  -->
+	
+	                <!-- /Widgets -->
+	
+	                <div class="clearfix"></div>
+	                <!-- Orders -->
+	                <h:form>
+		                <div class="orders">
+		                    <div class="row">
+		                        <div class="col-xl-12">
+		                            <div class="card">
+		                                <div class="card-body">
+		                                    <div class="col-md-6" style="float:left;">
+		                                        <h4 class="box-title" style="margin-top: 1%;">Proprietários </h4>
+		                                    </div>
+		                                    <div class="col-md-6" style="float:right;">
+		                                        <a href="ADD-Proprietario.xhtml">
+		                                            <button type="button" class="btn btn-primary" style="float: right;"><span class="fa fa-plus"></span>  Novo Proprietário</button>
+		                                        </a>
+		                                    </div>
+		                                </div>
+		
+		                                <div class="card-body--" style="overflow: auto; width: 100%; height: 450px;padding: 1%">
+		                                    <div class="table-stats order-table ov-h">
+		                                        <h:dataTable value="#{proprietarioController.todosProprietarios}" var="proprietario" class="table ">
+		                                       		<h:column>
+														<f:facet name="header">Id</f:facet>
+														<h:outputText value="#{proprietario.id}"/>
+													</h:column>
+		                                            <h:column>
+														<f:facet name="header">Nome</f:facet>
+														<h:outputText value="#{proprietario.nome}"/>
+													</h:column>
+													
+													<h:column>
+														<f:facet name="header">Número de Propriedades</f:facet>
+														<h:outputText value="#{proprietario.estado}"/>
+													</h:column>
+															
+													<h:column>
+														<f:facet name="header">Número de Apiários</f:facet>
+														<h:outputText value="#{proprietario.numero_apiarios}"/>
+													</h:column>
+													
+													<h:column>
+														<f:facet name="header" tyle="text-align:center">Ações</f:facet>
+															<h:commandLink  title="Editar Cadastro" class="btn btn-success" value="" style="margin-left: -2%" action="#{proprietarioController.carregar(proprietario)}" aria-hidden="true"><span class="fa fa-pencil" aria-hidden="true"></span></h:commandLink>
+															<h:commandLink  title="Apagar Cadastro" class="btn btn-danger" value="" style="margin-left: 2%;" action="#{proprietarioController.remover(proprietario)}" aria-hidden="true"><span class="fa fa-trash" aria-hidden="true"></span></h:commandLink>
+													</h:column>
+		                                        </h:dataTable>
+		                                    </div>
+		                                    <!-- /.table-stats -->
+		                                </div>
+		                            </div>
+		                            <!-- /.card -->
+		                        </div>
+		                        <!-- /.col-lg-8 -->
+		
+		
+		                    </div>
+		
+		                </div>
+	                <!-- /.orders -->
+					</h:form>
+	                <!-- /#add-category -->
+	            </div>
+	            <!-- .animated -->
+	        </div>
+	        <!-- /.content -->
+	    </ui:define>
+	</ui:composition>
+</html>
+        

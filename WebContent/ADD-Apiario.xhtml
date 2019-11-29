@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<ui:composition template="_template.xhtml">
+		
+		<ui:define name="titulo_pagina">Cadastrar Apiários</ui:define>
+		
+		<ui:define name="conteudo">	
+	        <!-- Content -->
+	        <div class="content" style="margin-bottom: 8.2%">
+				<div class="row">
+					<div class="col">
+						<div class="card">
+							<div class="card-body">
+                                <div class="col-md-6" style="float:left;">
+                                    <h4 class="box-title" style="margin-top: 1%;">Cadastrar Apiário </h4>
+                                </div>
+                            </div>
+							<div class="card-body">
+								<h:form>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<h:outputLabel value="Altura do apiário" for="altura" class="col-form-label"/>
+											<h:inputText id="altura" value="#{apiarioController.apiario.altura}" class="form-control"/>
+										</div>
+										<div class="form-group col-md-6">
+											<h:outputLabel value="Largura do apiário" for="largura" class="col-form-label"/>
+											<h:inputText id="largura" value="#{apiarioController.apiario.largura}" class="form-control"/>
+										</div>
+									</div>
+		
+									<div class="form-group">
+										<h:outputLabel value="Espécie das abelhas do apiário" for="especie" class="col-form-label"/>
+										<h:inputText id="especie" value="#{apiarioController.apiario.especie}" class="form-control"/>
+									</div>
+		
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<h:outputLabel value="Local do apiário" for="local" class="col-form-label"/>
+											<h:inputText id="local" value="#{apiarioController.apiario.local}" class="form-control"/>
+										</div>
+		
+										<div class="form-group col-md-6">
+											<h:outputText value="Data da ultima retirada" for="dtCadastro" class="col-form-label"/>
+											<h:inputText id="dtCadastro" value="#{apiarioController.apiario.ultimaretirada.time}" class="form-control">
+												<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
+											</h:inputText>
+										</div>
+									</div>
+									<div>
+										<div class="col-md-1" style="float: left">
+											<h:commandButton value="Gravar" action="#{apiarioController.gravar}" class="btn btn-success"/>
+										</div>
+										<div class="col-md-1" style="float: right">
+											<a href="listaApiario.xhtml">
+	                                            <button type="button" class="btn btn-primary" style="float: right;">Voltar</button>
+	                                        </a>
+										</div>
+									</div>
+									
+								</h:form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	    </ui:define>
+	</ui:composition>
+</html>
